@@ -97,3 +97,29 @@ blogs.addEventListener('click', () => {
     window.location.href = 'blog.html';
 });
 
+// for donation and history section
+const donation = document.querySelector('#donation-btn');
+const history = document.querySelector('#history-btn');
+
+donation.addEventListener('click', () => {
+    if(donation.getAttribute('class') === 'deactivate'){
+        donation.classList.add('active');
+        donation.classList.remove('deactivate');
+        history.classList.add('deactivate');
+        history.classList.remove('active');
+        document.getElementById('donation').style.display = 'block';
+        document.getElementById('history').style.display = 'none';
+    }
+});
+
+history.addEventListener('click', () => {
+    if(history.getAttribute('class') === 'deactivate'){
+        history.classList.add('active');
+        history.classList.remove('deactivate');
+        donation.classList.add('deactivate');
+        donation.classList.remove('active');
+        document.getElementById('donation').style.display = 'none';
+        document.getElementById('history').style.display = 'block';
+    }
+});
+

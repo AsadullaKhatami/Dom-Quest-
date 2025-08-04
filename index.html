@@ -34,13 +34,18 @@
         font-weight: 600;
         padding: 12px 32px;
         cursor: pointer;
+        transition: 0.5s;
     }
     .deactivate{
         padding: 12px 32px;
         background-color: transparent;
         border: 2px solid #1111114D;
         border-radius: 8px;
+        font-size: 20px;
+        font-weight: 600;
         cursor: pointer;
+        transition: 0.5s;
+
     }
     </style>
 </head>
@@ -66,12 +71,12 @@
         <!--button section-->
         <section>
             <div class="flex justify-center gap-2 md:gap-4">
-                <button class="active">Donation</button>
-                <button class="deactivate">History</button>
+                <button id="donation-btn" class="active">Donation</button>
+                <button id="history-btn" class="deactivate">History</button>
             </div>
         </section>
         <!-- card section-->
-        <section>
+        <section id="donation">
             <!-- car 1 -->
             <div class="flex flex-col justify-center items-center lg:flex-row gap-4 lg:gap-3 mt-8 ">
                 <!-- img part-->
@@ -152,13 +157,22 @@
             </div>
         </section>
 
+        <!-- history section -->
+        <section id="history" class="hidden">
+            <div>
+                
+            </div>
+        </section>
+
+        <!-- modal section -->
         <section id="modal" class="flex items-center justify-center w-full h-screen bg-transparent fixed top-0 hidden">
             <div id="modal" class="flex flex-col items-center justify-center gap-3 w-full md:w-md bg-white px-16 py-10">
                 <h1 class="text-3xl font-bold">congrates!</h1>
                 <img src="assets/coin.png" alt="">
                 <h4 class="text-normal text-[#1111114D]">you have donate for Humanity</h4>
                 <h2 class="text-xl font-bold">successfully</h2>
-                <button id="close-modal" class="px-8 py-3 bg-secondary rounded-lg cursor-pointer">close confirmation</button>
+                <button id="close-modal" class="px-8 py-3 bg-secondary rounded-lg cursor-pointer">close
+                    confirmation</button>
             </div>
         </section>
     </main>

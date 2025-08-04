@@ -1,3 +1,5 @@
+// const { createElement } = require("react");
+
 //for donate btn
 const main = document.querySelector('#main-balance');
 let mainBalance = parseFloat(main.innerText);
@@ -17,7 +19,7 @@ const noakhaliBtn = document.querySelector('#noakhali-btn');
 
 noakhaliBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    let value = ifNumber(parseFloat(noakhaliInput.value));
+    let value = ifNumber(parseFloat(noakhaliInput.value), "Donate for Flood at Noakhali, Bangladesh");
 
     noakhaliAmount += value;
     mainBalance -= value;
@@ -36,7 +38,7 @@ const feniBtn = document.querySelector('#feni-btn');
 
 feniBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    let value = ifNumber(parseFloat(feniInput.value));
+    let value = ifNumber(parseFloat(feniInput.value), "Donate for Flood Relief in Feni,Bangladesh");
 
     feniAmount += value;
     mainBalance -= value;
@@ -55,7 +57,7 @@ const quotaBtn = document.querySelector('#quota-btn');
 
 quotaBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    let value = ifNumber(parseFloat(quotaInput.value));
+    let value = ifNumber(parseFloat(quotaInput.value), "Aid for Injured in the Quota Movement");
 
     quotaAmount += value;
     mainBalance -= value;
@@ -74,13 +76,16 @@ closeModal.addEventListener('click', () => {
     modal.classList.add('hidden');
 });
 
-function ifNumber(value) {
+function ifNumber(value, titel) {
     if (Number.isNaN(value)) {
         alert("please enter a number");
         return '';
     } else {
         //show modal
         showModal();
+
+        // ADD history
+        historyElmt(value, titel);
         return value;
     }
 }
@@ -102,7 +107,7 @@ const donation = document.querySelector('#donation-btn');
 const history = document.querySelector('#history-btn');
 
 donation.addEventListener('click', () => {
-    if(donation.getAttribute('class') === 'deactivate'){
+    if (donation.getAttribute('class') === 'deactivate') {
         donation.classList.add('active');
         donation.classList.remove('deactivate');
         history.classList.add('deactivate');
@@ -113,7 +118,7 @@ donation.addEventListener('click', () => {
 });
 
 history.addEventListener('click', () => {
-    if(history.getAttribute('class') === 'deactivate'){
+    if (history.getAttribute('class') === 'deactivate') {
         history.classList.add('active');
         history.classList.remove('deactivate');
         donation.classList.add('deactivate');
@@ -123,3 +128,24 @@ history.addEventListener('click', () => {
     }
 });
 
+function historyElmt(value , titel) {
+    // create element for history
+
+    const div = document.createElement('div');
+    const h2 = document.createElement('h2');
+    const p = document.createElement('p');
+
+    div.classList.add('w-full', 'shadow-lg', 'border', 'border-[#1111111A]', 'p-4', 'rounded-2xl', 'mb-6');
+    h2.classList.add('text-2xl', 'font-bold');
+    p.classList.add('text-[#1111114D]');
+
+    h2.innerText = `${value} taka is ${titel}`;
+
+    const now = new Date(8.64e15).toString();
+    p.innerText = `Date: ${now}`;
+
+    div.appendChild(h2);
+    div.appendChild(p);
+    document.getElementById('history').appendChild(div);
+
+}

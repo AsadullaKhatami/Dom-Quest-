@@ -67,13 +67,26 @@ quotaBtn.addEventListener('click', (event) => {
 
 });
 
+// close modal
+const closeModal = document.querySelector('#close-modal');
+const modal = document.getElementById('modal');
+closeModal.addEventListener('click', () => {
+    modal.classList.add('hidden');
+});
+
 function ifNumber(value) {
     if (Number.isNaN(value)) {
         alert("please enter a number");
         return '';
-    }else{
+    } else {
+        //show modal
+        showModal();
         return value;
     }
+}
+
+function showModal() {
+    modal.classList.remove('hidden');
 }
 
 

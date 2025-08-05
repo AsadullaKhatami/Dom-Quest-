@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate Bangladesh Blogs</title>
+    <!-- google fonts cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- font awesome icon cdn -->
+     
+
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+        --color-primary: #B4F461;
+        --color-secondary : #F9F7F3;
+      }
+
+      body {
+        font-family: "Lexend", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    .active{
+        background-color: #B4F461;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 12px 32px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    
+    </style>
 </head>
+
 <body>
-    <h1>this is Donate Bangladesh Blogs and it is on working processd</h1>
+    <header class="bg-secondary mb-4 md:mb-30">
+        <nav class="flex items-center justify-between py-6 lg:px-20 md:px-18 px-2 md:text-xl">
+            <div>
+                <button class="px-8 py-3 bg-primary rounded-lg font-semibold cursor-pointer" id="home">Home</button>
+            </div>
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="logo">
+                <h1 class="font-semibold ">Donate Bangladesh</h1>
+            </div>
+            <div class="flex items-center">
+                <img src="assets/coin.png" alt="coin">
+                <p class="md:ml-2 ml-1" id="main-balance">5500</p>
+                <p class="md:ml-2 ml-1">BDT</p>
+            </div>
+        </nav>
+    </header>
+    <main class="max-w-screen-xl mx-auto">
+        <h1 class="text-3xl font-bold">most asked question: </h1>
+        <ul id="qs">
+            <li class="shadow-lg p-3 md:p-8 mb-5 cursor-pointer">
+                <h3>why we donate?</h3>
+                <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eum odit sit,
+                    voluptate id aut aliquid ex ratione reprehenderit saepe eligendi neque hic expedita sapiente.</p>
+                
+            </li>
+            <li class="shadow-lg p-3 md:p-8 mb-5 cursor-pointer">
+                <h3>how we donate?</h3>
+                <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eum odit sit,
+                    voluptate id aut aliquid ex ratione reprehenderit saepe eligendi neque hic expedita sapiente.</p>
+            </li>
+            <li class="shadow-lg p-3 md:p-8 mb-5 cursor-pointer">
+                <h3>how to money will be send?</h3>
+                <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eum odit sit,
+                    voluptate id aut aliquid ex ratione reprehenderit saepe eligendi neque hic expedita sapiente.</p>
+            </li>
+            <li class="shadow-lg p-3 md:p-8 mb-5 cursor-pointer">
+                <h3>how our organization work ?</h3>
+                <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eum odit sit,
+                    voluptate id aut aliquid ex ratione reprehenderit saepe eligendi neque hic expedita sapiente.</p>
+            </li>
+            <li class="shadow-lg p-3 md:p-8 mb-5 cursor-pointer">
+                <h3>tell me about your donation camp?</h3>
+                <p class="hidden">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci eum odit sit,
+                    voluptate id aut aliquid ex ratione reprehenderit saepe eligendi neque hic expedita sapiente.</p>
+            </li>
+        </ul>
+    </main>
+
+
+    <script>
+        document.querySelector('#home').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        const qs = document.querySelectorAll('#qs li');
+
+        for(let q of qs){
+            q.addEventListener('click', (evt) => {
+
+            if(q.lastElementChild.classList == 'hidden'){
+                q.lastElementChild.classList.remove('hidden');
+            }else{
+                q.lastElementChild.classList.add('hidden');
+            }
+        });
+        }
+    </script>
 </body>
+
 </html>

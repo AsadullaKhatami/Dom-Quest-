@@ -94,8 +94,6 @@ function showModal() {
     modal.classList.remove('hidden');
 }
 
-
-
 // for blogs btn
 const blogs = document.querySelector('#blogs');
 blogs.addEventListener('click', () => {

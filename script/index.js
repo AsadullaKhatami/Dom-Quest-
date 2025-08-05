@@ -92,6 +92,7 @@ function ifNumber(value, titel) {
 
 function showModal() {
     modal.classList.remove('hidden');
+    modal.style.transition = '5s';
 }
 
 // for blogs btn
@@ -122,7 +123,7 @@ history.addEventListener('click', () => {
         donation.classList.add('deactivate');
         donation.classList.remove('active');
         document.getElementById('donation').style.display = 'none';
-        document.getElementById('history').style.display = 'block';
+        document.getElementById('history').style.display = 'block'; 
     }
 });
 

@@ -73,12 +73,16 @@ quotaBtn.addEventListener('click', (event) => {
 const closeModal = document.querySelector('#close-modal');
 const modal = document.getElementById('modal');
 closeModal.addEventListener('click', () => {
-    modal.classList.add('hidden');
+    modal.classList.replace('opacity-100', 'opacity-0');
+    modal.classList.replace('pointer-events-auto', 'pointer-events-none');
 });
 
 function ifNumber(value, titel) {
-    if (Number.isNaN(value)) {
-        alert("please enter a number");
+    if (Number.isNaN(value) || value <= 0) {
+        alert("please enter a valid number");
+        return '';
+    }else if(value > mainBalance){
+        alert(`you don't have ${value} that much money.`);
         return '';
     } else {
         //show modal
@@ -91,8 +95,11 @@ function ifNumber(value, titel) {
 }
 
 function showModal() {
-    modal.classList.remove('hidden');
-    modal.style.transition = '5s';
+    // modal.classList.remove('hidden');
+    modal.classList.replace('opacity-0', 'opacity-100');
+    modal.classList.replace('pointer-events-none', 'pointer-events-auto');
+
+    
 }
 
 // for blogs btn
